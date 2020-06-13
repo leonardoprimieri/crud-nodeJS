@@ -13,9 +13,10 @@ exports.index = async (req, res) => {
 };
 exports.create = (req, res) => {
   return res.render("create");
-  req.body.languages = req.body.languages.split(",").map((l) => l.trim());
 };
 exports.createAction = async (req, res) => {
+  req.body.languages = req.body.languages.split(",").map((l) => l.trim());
+
   const user = new User(req.body);
   console.log(user);
   await user.save();
@@ -31,6 +32,8 @@ exports.edit = async (req, res) => {
 };
 
 exports.editAction = async (req, res) => {
+  req.body.languages = req.body.languages.split(",").map((l) => l.trim());
+
   await User.findOneAndUpdate({ _id: req.params._id }, req.body, {
     new: true,
     runValidators: true,
@@ -38,3 +41,12 @@ exports.editAction = async (req, res) => {
 
   return res.render("success", { edit: true });
 };
+
+exports.show = async (req, res) => {
+  const { _id } = req.params;
+
+  const user = await User.findOne({ _id });
+  return res.render("show", user);
+};
+
+exports.delete = async (req, res) => {};

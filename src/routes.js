@@ -9,4 +9,6 @@ router.post("/user/create", user.createAction);
 router.get("/user/:_id/edit", user.edit);
 router.post("/user/:_id/edit", user.editAction);
 
+router.get("/user/:_id", user.show);
+
 module.exports = router;
