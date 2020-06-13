@@ -1,21 +1,22 @@
-{% extends 'header.njk' %}
-{% block content %}
-  <form method="POST">
-    Nome:
-    <br><br>
-    <input type="text" name="name" placeholder="Digite seu nome">
-    <br><br>
-    Email:
-    <br><br>
-    <input type="text" name="email" placeholder="Digite seu nome">
-    <br><br>
-    Stack:
-    <br><br>
-    <small>Separe as linguagens por vírgula</small>
-    <br>
-    <input type="text" name="languages" placeholder="NodeJS, React, ES6...">
+{% extends 'partials/layout.njk' %}
 
-    <br><br>
-    <input type="submit" value="Adicionar">
-  </form>
+{% block content %}
+  <div class="form-container">
+    <form method="POST">
+      <div class="item">
+        <div>Nome:</div>
+        <input type="text" name="name" placeholder="Digite seu nome">
+      </div>
+      <div class="item">
+        <div>E-mail:</div>
+        <input type="text" name="email" placeholder="Digite seu nome">
+      </div>
+      <div class="item">
+        <div>Stack</div>
+        <input type="text" name="languages" placeholder="NodeJS, React, ES6...">
+      </div>
+      <input type="submit" value="Adicionar">
+    </form>
+  </div>
+
 {% endblock content %}

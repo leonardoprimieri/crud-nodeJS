@@ -1,6 +1,15 @@
-{% extends 'header.njk' %}
+{% extends 'partials/layout.njk' %}
+
 {% block content %}
-  <h1>Informações de
-    {{name}}
-  </h1>
+  <div class="container">
+    <h1>Informações de
+      {{name}}
+    </h1>
+
+    <p>Principais linguagens:
+      {{languages}}</p>
+
+    <p>E mail:
+      {{email}}</p>
+  </div>
 {% endblock content %}

@@ -1,23 +1,45 @@
-{% extends 'header.njk' %}
+{% extends 'partials/layout.njk' %}
+
 {% block content %}
 
-  {% for user in users %}
-    <p>{{user.name}}
-      -
-      {{user.email}}
-      -
-      {% for language in user.languages %}
-        {{language}}
-      {% endfor %}
-      -
-      <a href="/user/{{user.id}}/edit">[ editar ]</a>
-      <a href="/user/{{user.id}}/delete">[ deletar ]</a>
+  <div class="container table-container">
 
-      <a href="/user/{{user.id}}">[ visualizar ]</a>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Stack</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for user in users %}
 
-    </p>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              {% for language in user.languages %}
+                <span>{{language}}</span>
+              {% endfor %}
+            </td>
 
-  {% endfor %}
+            <td>
+              <a href="/user/{{user.id}}">
+                <button class="btn-info">Visualizar</button>
+              </a>
+              <a href="/user/{{user.id}}/delete">
+                <button class="btn-delete">Excluir</button>
+              </a>
+            </td>
+          </tr>
 
-  <h1>Bem vindo!</h1>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+  </div>
+
 {% endblock content %}
