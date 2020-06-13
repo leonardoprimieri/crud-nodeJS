@@ -49,4 +49,10 @@ exports.show = async (req, res) => {
   return res.render("show", user);
 };
 
-exports.delete = async (req, res) => {};
+exports.delete = async (req, res) => {
+  const { _id } = req.params;
+  const user = new User(req.body);
+  await User.findOneAndDelete({ _id });
+
+  return res.redirect("/");
+};

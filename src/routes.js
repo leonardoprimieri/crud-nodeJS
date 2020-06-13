@@ -11,4 +11,6 @@ router.post("/user/:_id/edit", user.editAction);
 
 router.get("/user/:_id", user.show);
 
+router.get("/user/:_id/delete", user.delete);
+
 module.exports = router;
