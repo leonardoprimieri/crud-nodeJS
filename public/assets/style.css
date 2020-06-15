@@ -22,6 +22,7 @@ body {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 header {
@@ -79,6 +80,10 @@ header {
   text-align: left;
 }
 
+th {
+  color: var(--primary-color);
+}
+
 td,
 th {
   padding: 16px;
@@ -89,11 +94,16 @@ tbody tr:last-child td {
   border-bottom: none;
 }
 
-tbody tr td:first-child span {
-  width: 48px;
-  height: 48px;
-  background-position: center;
-  background-size: cover;
+tbody tr td:first-child img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-bottom: 1px;
+}
+
+tbody tr td:first-child {
+  display: flex;
+  align-items: center;
 }
 
 th {
@@ -125,15 +135,15 @@ th {
   filter: brightness(100%);
 }
 
-span {
+span,
+.item-stack {
   padding: 10px;
   background-color: var(--secondary-bg);
   border: 1px solid transparent;
   cursor: pointer;
-}
-
-span:hover {
   border: 1px solid var(--primary-color);
+  border-radius: 8px 0 8px 0;
+  text-align: center;
 }
 
 /* -----FORM----- */
@@ -161,23 +171,33 @@ input[type="submit"] {
 }
 
 .form-container {
-  margin: 0 auto;
   background-color: var(--primary-bg);
-  width: 500px;
-  margin-top: 20px;
-  padding: 20px;
-  animation: up 1s;
+  width: 800px;
+  min-height: 400px;
+  margin: 45px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.4);
+  animation: up 200ms ease-out;
 }
 
 form {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .form-container .item {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .message-success {
@@ -185,4 +205,11 @@ form {
   justify-content: center;
   color: white;
   background-color: #5dca59;
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
 }

@@ -1,21 +1,38 @@
 {% extends 'partials/layout.njk' %}
 
 {% block content %}
-  <div class="container">
-    <h1>Informações de
-      {{name}}
-    </h1>
+  <div class="form-container">
+    <div class="random-img" style="background: url({{avatar_url}}) no-repeat center center / cover"></div>
+    <section class="user-info">
+      <div class="item">
+        <p>Nome:</p>
+        {{name}}
+      </div>
+      <div class="item">
+        <p>E-mail:</p>
+        {{email}}
+      </div>
 
-    <p>Principais linguagens:
-      {{languages}}</p>
+      <div class="item">
+        <p>Stack:</p>
+        {% for language in languages %}
+          <p class="item-stack">{{language}}</p>
+        {% endfor %}
 
-    <p>E mail:
-      {{email}}</p>
-    <a href="/user/{{id}}/delete">
-      <button class="btn-delete">Excluir</button>
-    </a>
-    <a href="/user/{{id}}/edit">
-      <button class="btn-info">Editar</button>
-    </a>
+      </div>
+
+      <div class="actions">
+        <a href="/user/{{id}}/delete">
+          <button class="btn-delete">Excluir</button>
+        </a>
+        <a href="/user/{{id}}/edit">
+          <button class="btn-info">Editar</button>
+        </a>
+      </div>
+
+    </section>
+
   </div>
+</div>
+
 {% endblock content %}

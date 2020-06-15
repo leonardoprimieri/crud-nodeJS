@@ -2,6 +2,7 @@
 
 {% block content %}
   <div class="form-container">
+    <div class="random-img" style="background: url(https://source.unsplash.com/collection/145103/500x500) no-repeat center center / cover"></div>
     <form method="POST">
       <div class="item">
         <div>Nome:</div>
@@ -15,7 +16,13 @@
         <div>Stack</div>
         <input type="text" name="languages" placeholder="NodeJS, React, ES6...">
       </div>
-      <input type="submit" value="Adicionar">
+      <div class="item">
+        <div>Imagem URL</div>
+        <input type="url" name="avatar_url" placeholder="https... ">
+      </div>
+      <div class="item">
+        <input type="submit" value="Adicionar">
+      </div>
     </form>
   </div>
 

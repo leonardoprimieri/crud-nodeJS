@@ -4,6 +4,10 @@
 
   <div class="container table-container">
 
+    <button class="btn-info">
+      <a href="/user/create">Adicionar</a>
+    </button>
+
     <table width="100%">
       <thead>
         <tr>
@@ -17,7 +21,9 @@
         <tr>
           {% for user in users %}
 
-            <td>{{user.name}}</td>
+            <td>
+              <img src="{{user.avatar_url}}">
+              {{user.name}}</td>
             <td>{{user.email}}</td>
             <td>
               {% for language in user.languages %}

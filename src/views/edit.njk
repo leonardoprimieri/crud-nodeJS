@@ -2,21 +2,28 @@
 
 {% block content %}
   <div class="form-container">
+    <div class="random-img" style="background: url({{avatar_url}}) no-repeat center center / cover"></div>
     <form method="POST">
       <div class="item">
         <div>Nome:</div>
-        <input type="text" name="name" value="{{user.name}}">
+        <input type="text" name="name" value="{{name}}">
       </div>
       <div class="item">
         <div>E-mail:</div>
-        <input type="text" name="email" value="{{user.email}}">
+        <input type="text" name="email" value="{{email}}">
       </div>
       <div class="item">
         <div>Stack</div>
-        <input type="text" name="languages" value="{{user.languages}}">
+        <input type="text" name="languages" value="{{languages}}">
       </div>
-      <input type="submit" value="Adicionar">
+      <div class="item">
+        <div>Imagem URL</div>
+        <input type="url" name="avatar_url" value="{{avatar_url}}">
+      </div>
+      <div class="item">
+        <input type="submit" value="Salvar">
+      </div>
     </form>
-
   </div>
+
 {% endblock content %}
