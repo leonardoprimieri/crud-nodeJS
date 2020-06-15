@@ -18,7 +18,6 @@ exports.createAction = async (req, res) => {
   req.body.languages = req.body.languages.split(",").map((l) => l.trim());
 
   const user = new User(req.body);
-  console.log(user);
   await user.save();
 
   return res.render("success");
@@ -28,7 +27,10 @@ exports.edit = async (req, res) => {
   const { _id } = req.params;
 
   const user = await User.findOne({ _id });
-  return res.render("edit", user);
+  const data = {
+    user,
+  };
+  return res.render("edit", data);
 };
 
 exports.editAction = async (req, res) => {

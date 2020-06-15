@@ -5,17 +5,18 @@
     <form method="POST">
       <div class="item">
         <div>Nome:</div>
-        <input type="text" name="name" placeholder="Digite seu nome">
+        <input type="text" name="name" value="{{user.name}}">
       </div>
       <div class="item">
         <div>E-mail:</div>
-        <input type="text" name="email" placeholder="Digite seu nome">
+        <input type="text" name="email" value="{{user.email}}">
       </div>
       <div class="item">
         <div>Stack</div>
-        <input type="text" name="languages" placeholder="NodeJS, React, ES6...">
+        <input type="text" name="languages" value="{{user.languages}}">
       </div>
       <input type="submit" value="Adicionar">
     </form>
+
   </div>
 {% endblock content %}
