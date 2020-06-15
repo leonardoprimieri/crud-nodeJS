@@ -2,48 +2,31 @@
 
 {% block content %}
 
-  <div class="container table-container">
+  <div class="container">
+    <div class="cards">
+      {% for user in users %}
+        <a href="/user/{{user.id}}">
+          <div class="card">
+            <div class="img">
+              <img src="{{user.avatar_url}}" width="200px">
+            </div>
+            <div class="content">
+              <p>{{user.name}}</p>
+              <p>Stack:</p>
+            </div>
 
-    <button class="btn-info">
-      <a href="/user/create">Adicionar</a>
-    </button>
-
-    <table width="100%">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Stack</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          {% for user in users %}
-
-            <td>
-              <img src="{{user.avatar_url}}">
-              {{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>
-              {% for language in user.languages %}
-                <span>{{language}}</span>
-              {% endfor %}
-            </td>
-
-            <td>
-              <a href="/user/{{user.id}}">
-                <button class="btn-info">Visualizar</button>
-              </a>
-
-            </td>
-          </tr>
+            {% for language in user.languages %}
+              <p class="item-stack">{{language}}</p>
+            {% endfor %}
+          </div>
 
         {% endfor %}
 
-      </tbody>
-    </table>
+        <a href="/user/create">
+          <button class="btn-add">+</button>
+        </a>
+      </a>
 
-  </div>
+    </div>
 
-{% endblock content %}
+  {% endblock content %}
